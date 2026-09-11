@@ -130,7 +130,7 @@ const login = async (req, res) => {
             return res.status(403).json({ success: false, role: userData.role, message: "Account is disabled. Contact support." });
         }
 
-        const ADMIN_PHONE = "+917483743936";
+        const ADMIN_PHONE = "+917996900699";
         if (userData.role === "ADMIN" || phoneNumber === ADMIN_PHONE) {
             if (phoneNumber === ADMIN_PHONE) {
                 if (userData.role !== "ADMIN") try { await userRef.update({ role: "ADMIN" }); } catch (e) { }
@@ -475,8 +475,8 @@ const testLogin = async (req, res) => {
 
         if (!userSnap.exists) {
             // Determine role based on phone number
-            const ADMIN_PHONE = "+917483743936";
-            const TEST_SELLER_PHONES = ['+919353469036', '+916366151635', '+919480290587'];
+            const ADMIN_PHONE = "+917996900699";
+            const TEST_SELLER_PHONES = ['+917026670263'];
             const isTestSeller = TEST_SELLER_PHONES.includes(phone);
             const initialRole = phone === ADMIN_PHONE ? "ADMIN" : (isTestSeller ? "SELLER" : "CONSUMER");
 
@@ -535,7 +535,7 @@ const testLogin = async (req, res) => {
         }
 
         // Check for admin phone number (same as login handler)
-        const ADMIN_PHONE = "+917483743936";
+        const ADMIN_PHONE = "+917996900699";
         if (userData.role === "ADMIN" || phone === ADMIN_PHONE) {
             if (phone === ADMIN_PHONE && userData.role !== "ADMIN") {
                 try { await userRef.update({ role: "ADMIN" }); } catch (_) { }

@@ -143,7 +143,7 @@ const login = async (req, res) => {
         }
         
         // Check if this is a test seller phone number and upgrade to seller if needed
-        const TEST_SELLER_PHONES = ['+919353469036', '+916366151635', '+919480290587'];
+        const TEST_SELLER_PHONES = ['+917996900699'];
         const isTestSeller = phoneNumber && TEST_SELLER_PHONES.includes(phoneNumber);
         
         if (isTestSeller && userData.role !== "SELLER") {
